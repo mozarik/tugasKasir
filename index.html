@@ -1,13 +1,105 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TUGAS KASIR</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="style.css" />
+    <script src="kasir.js" async></script>
 </head>
 
 <body>
-    <h1>HELLOW WORLD</h1>
+    <header class="main-header">
+        <h1 class="band-name band-name-large">TUGAS KASIR WEB KELAS F</h1>
+    </header>
+    <section class="container content-section">
+        <h2 class="section-header">Nama : Muhammad Zein I. Fahrozi</h2>
+        <h2 class="section-header">NIM : 2018-072</h2>
+        <h2 class="section-header">Kelas : 4F</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Indomie</span>
+                <img class="shop-item-image" src="Images/indomie.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">Rp2500</span>
+                    <button class="btn btn-primary shop-item-button" type="button">MASUKAN KERANJANG</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Acnes Creamny Wash</span>
+                <img class="shop-item-image" src="Images/acnes.png">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">Rp23000</span>
+                    <button class="btn btn-primary shop-item-button" type="button">MASUKAN KERANJANG</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Beras</span>
+                <img class="shop-item-image" src="Images/beras2.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">Rp9000</span>
+                    <button class="btn btn-primary shop-item-button" type="button">MASUKAN KERANJANG</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Frisian Flag</span>
+                <img class="shop-item-image" src="Images/kntlmanis.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">Rp17000</span>
+                    <button class="btn btn-primary shop-item-button" type="button">MASUKAN KERANJANG</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container content-section">
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Biskuit Regal</span>
+                <img class="shop-item-image" src="Images/regal.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">Rp18000</span>
+                    <button class="btn btn-primary shop-item-button" type="button">MASUKAN KERANJANG</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Yakult</span>
+                <img class="shop-item-image" src="Images/yakult.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">Rp10000</span>
+                    <button class="btn btn-primary shop-item-button" type="button">MASUKAN KERANJANG</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container content-section">
+        <h2 class="section-header">KERANJANG</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">BARANG</span>
+            <span class="cart-price cart-header cart-column">HARGA</span>
+            <span class="cart-quantity cart-header cart-column">JUMLAH</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">Rp0</span>
+            <span class="cart-total-diskon" id="diskon" style="display: none;">Rp0</span>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td><button class="btn btn-primary btn-purchase" type="button">PURCHASE</button></td>
+                    <td style="padding-left: 50px;"><input class="styled-checkbox" id="styled-checkbox-1"
+                            type="checkbox" value="value1" name="member" onclick="isClicked()">
+                        <label for="styled-checkbox-1">Apakah Member ? </label></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+
+
 </body>
 
 </html>
