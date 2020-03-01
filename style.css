@@ -341,6 +341,12 @@ body {
     font-size: 1.75em;
 }
 
+.btn-weekend {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+
 .styled-checkbox {
     position: absolute;
     opacity: 0;
@@ -402,4 +408,8 @@ body {
     text-align: center;
     font-size: 15pt;
     margin: 20px 20px 20px 20px;
+}
+
+.dropdown-days {
+    padding-left: 30px;
 }

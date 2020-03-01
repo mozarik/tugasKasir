@@ -24,6 +24,7 @@ function ready() {
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+
 }
 
 function purchaseClicked() {
@@ -99,10 +100,10 @@ function updateCartTotal() {
         total = total + (price * quantity)
     }
     total = Math.round(total * 100) / 100
-    totalDiskon = total * (1 - (10 / 100))
+    diskon = total * (10 / 100)
+    totalDiskon = total - diskon
     document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp' + total
-    document.getElementsByClassName('cart-total-diskon')[0].innerText = 'Selamat anda mendapatkan diskon Total bayar anda ' + 'Rp ' + totalDiskon
-
+    document.getElementsByClassName('cart-total-diskon')[0].innerText = 'Selamat anda mendapatkan diskon Total bayar anda Sebesar ' + diskon + ' Rp ' + totalDiskon
 
 }
 
@@ -115,6 +116,22 @@ function isClicked() {
         text.style.display = "none";
     }
 }
+
+function isWeekend() {
+    var hargaItemList = document.getElementsByClassName("shop-item-price")
+    for (var i = 0; i < hargaItemList.length; i++) {
+        var elementHarga = hargaItemList[i].innerText
+        var elementHargaChange = hargaItemList[i].innerText
+        var price = parseFloat(elementHarga.replace('Rp', ''))
+        var diskonWeekend = price * (1 - (2 / 100))
+        document.getElementsByClassName("shop-item-price")[i].innerText = elementHarga.replace(elementHargaChange, "Rp" + diskonWeekend)
+    }
+    updateCartTotal()
+    alert("Harga Per Item Di Diskon 2 Persen")
+}
+
+document.getElementById("weekend").addEventListener("click", isWeekend)
+
 
 
 // function OnChangeCheckbox(checkbox, newTotal) {
