@@ -100,11 +100,32 @@ function updateCartTotal() {
         total = total + (price * quantity)
     }
     total = Math.round(total * 100) / 100
-    diskon = total * (10 / 100)
-    totalDiskon = total - diskon
-    document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp' + total
-    document.getElementsByClassName('cart-total-diskon')[0].innerText = 'Selamat anda mendapatkan diskon Total bayar anda Sebesar ' + diskon + ' Rp ' + totalDiskon
 
+    if (total > 100000) {
+        var diskonText = document.getElementById("hematDiskon").innerText
+        diskonSeratus = seratusRibuDiskon(total)
+        diskonMember = total * (5 / 100)
+        totalDiskon = total - diskonSeratus
+        totalDiskonMember = total - (diskonSeratus + diskonMember)
+        document.getElementById("hematDiskon").innerText = diskonText.replace("Rp0", diskonSeratus)
+        document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp' + (totalDiskon)
+        document.getElementsByClassName('cart-total-diskon')[0].innerText = 'Anda Seorang member, anda berhak mendapatkan diskon sebesar 5% Anda cukup membayar ' + totalDiskonMember + ' Untuk Belanja Ini'
+        alert("Selamat Mendapatkan Diskon Tambahan 10% atau " + diskonSeratus)
+    } else if (total <= 100000) {
+        var diskonText = document.getElementById("hematDiskon").innerText
+        diskon = total * (5 / 100)
+        totalDiskon = total - diskon
+        document.getElementById("hematDiskon").innerText = diskonText.replace("Rp0", "Rp0")
+        document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp' + total
+        document.getElementsByClassName('cart-total-diskon')[0].innerText = 'Selamat anda mendapatkan diskon Total bayar anda Sebesar ' + diskon + ' Rp ' + totalDiskon
+    } else {
+        var diskonText = document.getElementById("hematDiskon").innerText
+        diskon = total * (5 / 100)
+        totalDiskon = total - diskon
+        document.getElementById("hematDiskon").innerText = diskonText.replace("Rp0", "Rp0")
+        document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp' + total
+        document.getElementsByClassName('cart-total-diskon')[0].innerText = 'Selamat anda mendapatkan diskon Total bayar anda Sebesar ' + diskon + ' Rp ' + totalDiskon
+    }
 }
 
 function isClicked() {
@@ -128,6 +149,14 @@ function isWeekend() {
     }
     updateCartTotal()
     alert("Harga Per Item Di Diskon 2 Persen")
+}
+
+function seratusRibuDiskon(total) {
+    var tambahanDiskon = 0;
+    if (total > 100000) {
+        tambahanDiskon = total * (10 / 100)
+    }
+    return tambahanDiskon
 }
 
 document.getElementById("weekend").addEventListener("click", isWeekend)
